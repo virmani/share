@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Nishka's Family — Identity Iceberg</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='ic' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23dbeafe'/%3E%3Cstop offset='100%25' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 8 L82 48 L72 96 L28 96 L18 48 Z' fill='url(%23ic)'/%3E%3Cline x1='4' y1='52' x2='96' y2='52' stroke='%2393c5fd' stroke-width='2.5' stroke-dasharray='5 3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --zoom: 1;
+  font-size: calc(16px * var(--zoom));
+  --bg: light-dark(#f6f3ee, #14110d);
+  --surface: light-dark(#ffffff, #221e18);
+  --ink: light-dark(#1a1814, #f6f3ee);
+  --ink-soft: light-dark(#5c5048, #b0a89e);
+  --border: light-dark(#e8e0d4, #3a342e);
+  --c-comm: #2563eb;       --c-comm-soft: rgba(37,99,235,0.13);   --c-comm-ink: #1e3a8a;
+  --c-sports: #059669;     --c-sports-soft: rgba(5,150,105,0.13); --c-sports-ink: #064e3b;
+  --c-dance: #e11d48;      --c-dance-soft: rgba(225,29,72,0.13);  --c-dance-ink: #881337;
+  --c-books: #db2777;      --c-books-soft: rgba(219,39,119,0.13); --c-books-ink: #831843;
+  --c-bake: #d97706;       --c-bake-soft: rgba(217,119,6,0.13);   --c-bake-ink: #7c2d12;
+  --c-work: #7c3aed;       --c-work-soft: rgba(124,58,237,0.13);  --c-work-ink: #4c1d95;
+  --c-pop: #c026d3;        --c-pop-soft: rgba(192,38,211,0.13);   --c-pop-ink: #701a75;
+  --c-build: #0891b2;      --c-build-soft: rgba(8,145,178,0.13);  --c-build-ink: #164e63;
+  --c-closer: #1e3a8a;     --c-closer-soft: rgba(30,58,138,0.10); --c-closer-ink: #0c1d4a;
+  --c-adhd: #7c3aed;       --c-adhd-soft: rgba(124,58,237,0.13);  --c-adhd-ink: #4c1d95;
+  --c-t1d: #0891b2;        --c-t1d-soft: rgba(8,145,178,0.13);    --c-t1d-ink: #164e63;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100vh; width: 100vw; overflow: hidden; }
+body { font-family: 'Nunito', -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--ink); display: flex; flex-direction: column; }
+
+.topnav { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 1.5rem; background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0; gap: 1rem; }
+.topnav .title { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: clamp(14px, 1.1vw, 18px); letter-spacing: -0.01em; }
+.counter { font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+.controls { display: flex; gap: 0.4rem; }
+.controls button { background: transparent; border: 1px solid var(--border); color: var(--ink); cursor: pointer; width: 32px; height: 32px; border-radius: 8px; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.controls button:hover { background: var(--c-comm-soft); }
+
+.progress { height: 3px; background: var(--border); flex-shrink: 0; }
+.progress-bar { height: 100%; background: linear-gradient(90deg, var(--c-comm), var(--c-pop)); transition: width 0.4s ease; }
+
+main { flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 1.5rem 2rem; min-height: 0; }
+.slide { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: clamp(0.7rem, 1.4vh, 1.6rem); animation: slideIn 0.4s ease; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.category-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.4rem 0.95rem; border-radius: 999px; background: var(--cat-soft); color: var(--cat-ink); }
+
+.question { font-family: 'Fredoka', sans-serif; font-size: clamp(32px, 4.4vw, 64px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; max-width: 92%; color: var(--ink); margin: 0; }
+
+.illustration { font-size: clamp(72px, 11vw, 160px); line-height: 1; filter: drop-shadow(0 8px 24px var(--cat-soft)); }
+
+.hero-answer { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; padding: 0 0.15em; }
+.hero-number { font-family: 'Fredoka', sans-serif; font-size: clamp(110px, 13vw, 200px); font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; padding: 0 0.08em 0.05em 0.05em; background: linear-gradient(135deg, var(--cat) 0%, var(--cat-ink) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0; display: inline-block; }
+.hero-label { font-family: 'Fredoka', sans-serif; font-size: clamp(24px, 2.6vw, 40px); font-weight: 600; color: var(--cat-ink); letter-spacing: -0.015em; }
+
+.detail { font-size: clamp(17px, 1.6vw, 26px); font-weight: 500; max-width: 78%; color: var(--ink); line-height: 1.45; padding: 0.95rem 1.4rem 0.95rem 1.6rem; background: var(--cat-soft); border-radius: 14px; position: relative; overflow: hidden; text-align: left; }
+.detail::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--cat); }
+.detail strong { color: var(--cat-ink); font-weight: 800; }
+
+/* Language table */
+.lang-table { border-collapse: collapse; width: 100%; font-size: clamp(16px, 1.5vw, 24px); margin: 0.2rem 0 0.8rem; }
+.lang-table th { text-align: left; font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--cat-ink); font-size: clamp(13px, 1.05vw, 16px); text-transform: uppercase; letter-spacing: 0.07em; padding: 0.45rem 0.8rem; border-bottom: 2px solid var(--cat); }
+.lang-table td { padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--cat-soft); vertical-align: middle; }
+.lang-table tr:last-child td { border-bottom: none; }
+.lang-table td:first-child { font-family: 'Fredoka', sans-serif; font-weight: 600; color: var(--cat-ink); }
+.lang-unique { display: inline-block; padding: 0.3rem 0.85rem; border-radius: 999px; background: var(--cat); color: white; font-weight: 700; font-size: 0.95em; letter-spacing: -0.01em; }
+.lang-summary { font-size: clamp(17px, 1.5vw, 24px); font-weight: 600; padding-top: 0.4rem; border-top: 1px dashed var(--cat-soft); }
+.lang-summary strong { color: var(--cat-ink); font-weight: 800; }
+
+.cards-row { display: flex; gap: clamp(0.6rem, 1vw, 1.2rem); align-items: flex-end; justify-content: center; }
+.person-card { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.person-card .person-name { font-size: clamp(11px, 0.9vw, 15px); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+.card { width: clamp(74px, 7.5vw, 120px); aspect-ratio: 3/4; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.2); font-family: 'Fredoka', sans-serif; color: white; font-size: clamp(20px, 2.1vw, 36px); font-weight: 700; letter-spacing: -0.02em; transform: rotate(var(--tilt, 0deg)); transition: transform 0.3s ease; }
+.card.green { background: linear-gradient(135deg, #22c55e, #15803d); }
+.card.red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+.cards-row .person-card:nth-child(1) .card { --tilt: -3deg; }
+.cards-row .person-card:nth-child(2) .card { --tilt: 1.5deg; }
+.cards-row .person-card:nth-child(3) .card { --tilt: -1deg; }
+
+/* Photo (real <img> when src provided, otherwise stylized placeholder) */
+.photo-frame { width: clamp(280px, 36vw, 540px); aspect-ratio: 4/3; background: var(--cat-soft); border: 3px dashed var(--cat); border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--cat-ink); font-weight: 700; font-size: clamp(13px, 1.1vw, 17px); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; padding: 1rem; gap: 0.6rem; overflow: hidden; }
+.photo-frame.has-image { border: none; padding: 0; background: transparent; box-shadow: none; border-radius: 0; }
+.photo-frame .photo-emoji { font-size: clamp(48px, 6vw, 84px); text-transform: none; letter-spacing: 0; }
+.photo-frame img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 12px; filter: drop-shadow(0 16px 40px rgba(0,0,0,0.22)); }
+
+/* Multi-photo row (e.g. 3 dining table photos) */
+.photo-frame.photo-frame--multi { width: clamp(480px, 78vw, 1100px); aspect-ratio: auto; height: clamp(220px, 32vh, 380px); display: flex; flex-direction: row; align-items: stretch; justify-content: center; gap: clamp(0.5rem, 1vw, 1rem); background: transparent; border: none; padding: 0; box-shadow: none; border-radius: 0; }
+.photo-frame.photo-frame--multi img { flex: 1 1 0; min-width: 0; width: auto; height: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 12px 28px rgba(0,0,0,0.20)); }
+
+/* Intro */
+.intro-title { font-family: 'Fredoka', sans-serif; font-size: clamp(48px, 6.5vw, 100px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; background: linear-gradient(135deg, #2563eb 0%, #db2777 50%, #d97706 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0; padding: 0 0.05em 0.05em 0.05em; }
+.family-row { display: flex; gap: clamp(1.2rem, 3vw, 3rem); align-items: center; justify-content: center; flex-wrap: wrap; }
+.person { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.avatar { width: clamp(110px, 11vw, 170px); aspect-ratio: 1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-size: clamp(36px, 4vw, 64px); font-weight: 600; color: white; box-shadow: 0 12px 32px rgba(0,0,0,0.18); letter-spacing: -0.02em; }
+.avatar.ashish { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+.avatar.manasi { background: linear-gradient(135deg, #db2777, #e11d48); }
+.avatar.nishka { background: linear-gradient(135deg, #d97706, #059669); }
+.person-name-large { font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: clamp(16px, 1.4vw, 24px); color: var(--ink); }
+
+.subtitle { font-size: clamp(18px, 1.7vw, 30px); color: var(--ink-soft); font-weight: 500; max-width: 80%; line-height: 1.4; }
+.subtitle strong { color: var(--ink); font-weight: 800; }
+
+.bridge-text { font-family: 'Fredoka', sans-serif; font-size: clamp(34px, 4.5vw, 72px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.18; max-width: 88%; color: var(--c-closer-ink); }
+.bridge-text em { font-style: normal; background: linear-gradient(135deg, #2563eb, #c026d3); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+
+.mechanic-demo { display: flex; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; justify-content: center; }
+.mechanic-card { width: clamp(110px, 10vw, 160px); aspect-ratio: 3/4; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-family: 'Fredoka', sans-serif; font-size: clamp(32px, 3.4vw, 56px); font-weight: 700; color: white; box-shadow: 0 14px 32px rgba(0,0,0,0.2); }
+.mechanic-card.green { background: linear-gradient(135deg, #22c55e, #15803d); transform: rotate(-4deg); }
+.mechanic-card.red { background: linear-gradient(135deg, #ef4444, #b91c1c); transform: rotate(4deg); }
+.mechanic-pair { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.mechanic-pair .label { font-family: 'Fredoka', sans-serif; font-size: clamp(22px, 2.4vw, 38px); font-weight: 600; }
+.mechanic-pair.green .label { color: #15803d; }
+.mechanic-pair.red .label { color: #b91c1c; }
+
+/* Closer slides */
+.iceberg-svg { width: 100%; max-width: clamp(560px, 78vw, 1100px); height: auto; }
+
+.adhd-page, .t1d-page { display: flex; flex-direction: column; align-items: center; gap: clamp(0.8rem, 1.6vh, 1.6rem); width: 100%; }
+.big-heading { font-family: 'Fredoka', sans-serif; font-size: clamp(56px, 7vw, 110px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin: 0; padding: 0 0.05em 0.04em 0.05em; display: inline-block; }
+.big-heading.adhd { background: linear-gradient(135deg, #7c3aed, #4c1d95); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.big-heading.t1d { background: linear-gradient(135deg, #0891b2, #164e63); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.who-line { font-family: 'Fredoka', sans-serif; font-size: clamp(28px, 3.4vw, 56px); font-weight: 600; line-height: 1.15; max-width: 92%; }
+.who-line .strong { font-weight: 700; }
+.adhd .who-line .strong { color: var(--c-adhd-ink); }
+.t1d .who-line .strong { color: var(--c-t1d-ink); }
+.aside-line { font-size: clamp(20px, 2vw, 32px); color: var(--ink-soft); font-weight: 500; }
+
+.two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2vw, 2rem); width: 100%; max-width: clamp(700px, 82vw, 1200px); }
+.col-card { background: var(--cat-soft); border-left: 5px solid var(--cat); border-radius: 14px; padding: 1.2rem 1.4rem; text-align: left; display: flex; flex-direction: column; gap: 0.7rem; }
+.col-title { font-family: 'Fredoka', sans-serif; font-size: clamp(20px, 2vw, 32px); font-weight: 700; color: var(--cat-ink); margin: 0; }
+.col-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.col-item { font-size: clamp(20px, 2vw, 30px); font-weight: 600; line-height: 1.2; display: flex; align-items: center; gap: 0.5rem; }
+.col-item .ico { font-size: 1.1em; flex-shrink: 0; }
+
+.tag { font-size: clamp(18px, 1.8vw, 28px); font-weight: 600; line-height: 1.3; max-width: 88%; color: var(--ink); }
+.tag.muted { color: var(--ink-soft); font-style: italic; }
+
+.cgm-cue { background: rgba(217,119,6,0.18); border-left: 5px solid #d97706; padding: 0.8rem 1.2rem; border-radius: 10px; font-style: italic; font-size: clamp(18px, 1.7vw, 26px); color: var(--c-bake-ink); font-weight: 600; max-width: 80%; }
+
+.payoff { font-family: 'Fredoka', sans-serif; font-size: clamp(40px, 5.6vw, 92px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.12; max-width: 90%; background: linear-gradient(135deg, #2563eb, #c026d3, #d97706); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-align: center; margin: 0; padding: 0 0.05em 0.05em 0.05em; }
+.payoff em { font-style: normal; font-weight: 700; }
+.payoff-sub { font-size: clamp(22px, 2.4vw, 38px); color: var(--ink-soft); font-weight: 600; margin-top: 1.2rem; }
+
+.bottomnav { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1.5rem; background: var(--surface); border-top: 1px solid var(--border); flex-shrink: 0; gap: 1rem; }
+.bottomnav button { background: transparent; border: 1px solid var(--border); color: var(--ink); padding: 0.45rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 13px; font-family: inherit; transition: background 0.15s; }
+.bottomnav button:hover:not(:disabled) { background: var(--c-comm-soft); }
+.bottomnav button:disabled { opacity: 0.3; cursor: not-allowed; }
+.hint { font-size: 12px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+@media print { .topnav, .bottomnav, .progress { display: none; } main { overflow: visible; } }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="title">🧊 Meet Nishka's Family — Identity Iceberg</div>
+  <div class="counter"><span id="slide-current">1</span> / <span id="slide-total">16</span><span id="stage-info"></span></div>
+  <div class="controls">
+    <button id="zoom-out" title="Zoom out">−</button>
+    <button id="zoom-in" title="Zoom in">+</button>
+    <button id="theme-toggle" title="Toggle dark/light theme">☀</button>
+  </div>
+</nav>
+<div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+
+<main id="slide-area"></main>
+
+<nav class="bottomnav">
+  <button id="prev">◀ Back</button>
+  <span class="hint">→ / Space to advance · ← to go back · F for fullscreen · click to advance</span>
+  <button id="next">Next ▶</button>
+</nav>
+
+<script>
+// Card order: [Ashish, Nishka, Manasi]  (Nishka in the middle)
+const SLIDES = [
+  // 0 — Intro page 1: title + family + mechanic
+  { type: 'intro1' },
+  // 1 — Intro page 2: sample question + cards
+  { type: 'intro2' },
+  // 2 — Intro page 3: bridge text
+  { type: 'intro3' },
+  // 3 — Languages
+  {
+    type: 'trivia', cat: 'comm', catLabel: 'Communication',
+    question: 'How many of us speak 3 languages?',
+    illustration: '🗣️',
+    answer: 3, answerLabel: 'All three!',
+    cards: ['green', 'green', 'green'],
+    detail: `<table class="lang-table"><thead><tr><th></th><th>Shared</th><th>Different</th></tr></thead><tbody><tr><td>Ashish</td><td>Hindi · English</td><td><span class="lang-unique">Punjabi</span></td></tr><tr><td>Nishka</td><td>Hindi · English</td><td><span class="lang-unique">Mandarin</span></td></tr><tr><td>Manasi</td><td>Hindi · English</td><td><span class="lang-unique">Telugu</span></td></tr></tbody></table><div class="lang-summary">That's <strong>5 different languages</strong> in our family!</div>`
+  },
+  // 4 — Soccer
+  {
+    type: 'trivia', cat: 'sports', catLabel: 'Sports',
+    question: 'How many of us play (or used to play) soccer?',
+    illustration: '⚽',
+    answer: 1, answerLabel: 'Just Nishka!',
+    cards: ['red', 'green', 'red'],
+    detail: 'Nishka plays soccer. Ashish and Manasi mostly cheer from the sidelines.'
+  },
+  // 5 — Dancing (photo on reveal)
+  {
+    type: 'trivia', cat: 'dance', catLabel: 'Hobbies',
+    question: 'How many of us love to dance?',
+    illustration: '💃',
+    photoOnReveal: true,
+    photoEmoji: '💃🕺',
+    photoLabel: 'PHOTO: Manasi & Nishka dancing',
+    photoSrc: 'dancing.jpg',
+    answer: 2, answerLabel: 'Manasi and Nishka!',
+    cards: ['red', 'green', 'green'],
+    detail: 'Manasi grew up dancing and still loves it. Nishka loves to dance too. Ashish prefers to watch and cheer.'
+  },
+  // 6 — Ski
+  {
+    type: 'trivia', cat: 'sports', catLabel: 'Sports',
+    question: 'How many of us know how to ski?',
+    illustration: '⛷️',
+    answer: 2, answerLabel: 'Manasi and Nishka!',
+    cards: ['red', 'green', 'green'],
+    detail: 'Manasi and Nishka ski. Ashish snowboards — same mountain, different board!'
+  },
+  // 7 — Harry Potter (HP book photo on BOTH stages, replacing emoji)
+  {
+    type: 'trivia', cat: 'books', catLabel: 'Books',
+    question: 'How many of us have read all 7 Harry Potter books?',
+    illustration: '📚',
+    photoOnQuestion: true,
+    photoEmoji: '📚',
+    photoLabel: 'PHOTO: Harry Potter book',
+    photoSrc: 'HarryPotter.jpg',
+    answer: 2, answerLabel: 'Ashish and Manasi!',
+    cards: ['green', 'red', 'green'],
+    detail: "Ashish read them first! Manasi finished them later. Nishka <strong>just started</strong> reading Harry Potter."
+  },
+  // 8 — Baking (photo on reveal)
+  {
+    type: 'trivia', cat: 'bake', catLabel: 'Hobbies',
+    question: 'How many of us love to bake?',
+    illustration: '🧁',
+    photoOnReveal: true,
+    photoEmoji: '🧁🍪',
+    photoLabel: 'PHOTO: Ashish & Nishka baking',
+    photoSrc: 'Baking.jpg',
+    answer: 2, answerLabel: 'Ashish and Nishka!',
+    cards: ['green', 'green', 'red'],
+    detail: 'Ashish and Nishka bake together. Manasi is happy to eat whatever they make.'
+  },
+  // 9 — Coding
+  {
+    type: 'trivia', cat: 'work', catLabel: 'Work',
+    question: 'How many of us know how to write computer code?',
+    illustration: '💻',
+    answer: 3, answerLabel: 'All three!',
+    cards: ['green', 'green', 'green'],
+    detail: "Manasi and Ashish work with teams that write computer code to solve problems. Nishka is learning too — she writes <strong>Scratch</strong>!"
+  },
+  // 10 — K-pop Demon Hunters
+  {
+    type: 'trivia', cat: 'pop', catLabel: 'Pop Culture',
+    question: 'How many of us have watched K-pop Demon Hunters?',
+    illustration: '🎤',
+    answer: 2, answerLabel: 'Manasi and Nishka!',
+    cards: ['red', 'green', 'green'],
+    detail: "Manasi and Nishka are fans. Ashish hasn't been invited to watch."
+  },
+  // 11 — Woodworking (photo on reveal)
+  {
+    type: 'trivia', cat: 'build', catLabel: 'Building Things',
+    question: 'How many of us helped build the family dining table with our own hands?',
+    illustration: '🪵🔨🪚',
+    photoOnReveal: true,
+    photoEmoji: '🪵🔨',
+    photoLabel: 'PHOTO: The family dining table',
+    photoSrcs: ['dining1.JPG', 'dining2.jpg', 'dining3.jpg'],
+    answer: 3, answerLabel: 'All three!',
+    cards: ['green', 'green', 'green'],
+    detail: "Including Nishka — she helped from <strong>inside Manasi's belly</strong>! Manasi was pregnant while we were building it."
+  },
+  // 12 — Closer page 1: iceberg illustration
+  { type: 'closer-iceberg' },
+  // 13 — Closer page 2: ADHD
+  { type: 'closer-adhd' },
+  // 14 — Closer page 3: T1D
+  { type: 'closer-t1d' },
+  // 15 — Closer page 4: payoff
+  { type: 'closer-payoff' }
+];
+
+const STATE = { slide: 0, stage: 0, zoom: 1 };
+
+function el(tag, cls, html) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+
+function setCatVars(root, cat) {
+  root.style.setProperty('--cat', `var(--c-${cat})`);
+  root.style.setProperty('--cat-soft', `var(--c-${cat}-soft)`);
+  root.style.setProperty('--cat-ink', `var(--c-${cat}-ink)`);
+}
+
+function familyRow() {
+  const row = el('div', 'family-row');
+  row.innerHTML = `
+    <div class="person"><div class="avatar ashish">A</div><div class="person-name-large">Ashish</div></div>
+    <div class="person"><div class="avatar nishka">N</div><div class="person-name-large">Nishka</div></div>
+    <div class="person"><div class="avatar manasi">M</div><div class="person-name-large">Manasi</div></div>
+  `;
+  return row;
+}
+
+function cardsRow(states) {
+  const labels = ['Ashish', 'Nishka', 'Manasi'];
+  const row = el('div', 'cards-row');
+  states.forEach((c, i) => {
+    const pc = el('div', 'person-card');
+    pc.innerHTML = `<div class="card ${c}">${c === 'green' ? 'YES' : 'NO'}</div><div class="person-name">${labels[i]}</div>`;
+    row.appendChild(pc);
+  });
+  return row;
+}
+
+function photoFrame(slide) {
+  const sources = slide.photoSrcs || (slide.photoSrc ? [slide.photoSrc] : []);
+  const wrap = el('div', 'photo-frame');
+  if (sources.length > 0) {
+    wrap.classList.add('has-image');
+    if (sources.length > 1) wrap.classList.add('photo-frame--multi');
+    sources.forEach((src) => {
+      const img = el('img');
+      img.src = src;
+      img.alt = slide.photoLabel || '';
+      wrap.appendChild(img);
+    });
+  } else {
+    wrap.innerHTML = `<div class="photo-emoji">${slide.photoEmoji}</div><div>${slide.photoLabel}</div>`;
+  }
+  return wrap;
+}
+
+// ===== Renderers =====
+function renderIntro1() {
+  const root = el('div', 'slide');
+  setCatVars(root, 'comm');
+  root.appendChild(el('h1', 'intro-title', "Meet Nishka's Family"));
+  root.appendChild(familyRow());
+  root.appendChild(el('div', 'subtitle', "We're going to play a guessing game with you!"));
+  const mech = el('div', 'mechanic-demo');
+  mech.innerHTML = `
+    <div class="mechanic-pair green">
+      <div class="mechanic-card green">YES</div>
+      <div class="label">Green = YES</div>
+    </div>
+    <div class="mechanic-pair red">
+      <div class="mechanic-card red">NO</div>
+      <div class="label">Red = NO</div>
+    </div>
+  `;
+  root.appendChild(mech);
+  return root;
+}
+
+function renderIntro2() {
+  const root = el('div', 'slide');
+  setCatVars(root, 'comm');
+  root.appendChild(el('div', 'category-label', 'Sample Question'));
+  root.appendChild(el('h1', 'question', 'Which of us have long hair?'));
+  // Long hair: A=no, N=yes, M=yes  → in [A, N, M] order
+  root.appendChild(cardsRow(['red', 'green', 'green']));
+  root.appendChild(el('div', 'subtitle', "Manasi and Nishka — yes! Ashish — nope."));
+  return root;
+}
+
+function renderIntro3() {
+  const root = el('div', 'slide');
+  setCatVars(root, 'closer');
+  const text = el('div', 'bridge-text');
+  text.innerHTML = "Easy — you could <em>see</em> that.<br/>But what about the stuff you <em>can't</em> see?";
+  root.appendChild(text);
+  return root;
+}
+
+function renderTrivia(slide, stage) {
+  const root = el('div', 'slide');
+  setCatVars(root, slide.cat);
+  root.appendChild(el('div', 'category-label', slide.catLabel));
+  root.appendChild(el('h1', 'question', slide.question));
+
+  if (stage === 0) {
+    if (slide.photoOnQuestion || slide.photoOnBoth) root.appendChild(photoFrame(slide));
+    else {
+      const ill = el('div', 'illustration');
+      ill.textContent = slide.illustration;
+      root.appendChild(ill);
+    }
+  } else {
+    // stage 1 (reveal)
+    if (slide.photoOnReveal || slide.photoOnBoth) {
+      root.appendChild(photoFrame(slide));
+      root.appendChild(el('div', 'hero-label', slide.answerLabel));
+    } else {
+      const hero = el('div', 'hero-answer');
+      hero.innerHTML = `<div class="hero-number">${slide.answer}</div><div class="hero-label">${slide.answerLabel}</div>`;
+      root.appendChild(hero);
+    }
+    root.appendChild(cardsRow(slide.cards));
+    const det = el('div', 'detail');
+    det.innerHTML = slide.detail;
+    root.appendChild(det);
+  }
+  return root;
+}
+
+function renderCloserIceberg() {
+  const root = el('div', 'slide');
+  setCatVars(root, 'closer');
+  root.appendChild(el('div', 'category-label', 'Below the Waterline'));
+  root.appendChild(el('h1', 'question', 'The Identity Iceberg'));
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS, 'svg');
+  svg.setAttribute('viewBox', '0 0 1000 560');
+  svg.setAttribute('class', 'iceberg-svg');
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#fef3c7" />
+        <stop offset="100%" stop-color="#fde68a" />
+      </linearGradient>
+      <linearGradient id="waterTop" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#bfdbfe" />
+        <stop offset="100%" stop-color="#3b82f6" />
+      </linearGradient>
+      <linearGradient id="waterDeep" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1e40af" />
+        <stop offset="100%" stop-color="#0c1d4a" />
+      </linearGradient>
+      <linearGradient id="iceTop" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" />
+        <stop offset="100%" stop-color="#dbeafe" />
+      </linearGradient>
+      <linearGradient id="iceMid" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#93c5fd" />
+        <stop offset="100%" stop-color="#3b82f6" />
+      </linearGradient>
+      <linearGradient id="iceDeep" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#1e40af" />
+        <stop offset="100%" stop-color="#0c1d4a" />
+      </linearGradient>
+    </defs>
+
+    <!-- Sky -->
+    <rect x="0" y="0" width="1000" height="200" fill="url(#sky)" />
+    <!-- Water (light → deep gradient) -->
+    <rect x="0" y="200" width="1000" height="220" fill="url(#waterTop)" />
+    <rect x="0" y="420" width="1000" height="140" fill="url(#waterDeep)" />
+
+    <!-- Waterline -->
+    <line x1="0" y1="200" x2="1000" y2="200" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 6" opacity="0.85" />
+
+    <!-- Iceberg above -->
+    <polygon points="430,60 540,200 350,200" fill="url(#iceTop)" stroke="#60a5fa" stroke-width="2" />
+    <!-- Iceberg just below -->
+    <polygon points="350,200 540,200 600,400 290,400" fill="url(#iceMid)" opacity="0.9" />
+    <!-- Iceberg deep -->
+    <polygon points="290,400 600,400 530,540 360,540" fill="url(#iceDeep)" opacity="0.95" />
+
+    <!-- "?" marks in deep zone -->
+    <text x="445" y="490" font-family="Fredoka, sans-serif" font-size="72" font-weight="700" fill="#fff" text-anchor="middle" opacity="0.55">? ?</text>
+
+    <!-- Right-side labels with leader lines -->
+    <line x1="540" y1="130" x2="700" y2="130" stroke="#7c2d12" stroke-width="2" />
+    <text x="710" y="125" font-family="Fredoka, sans-serif" font-size="26" font-weight="700" fill="#7c2d12">Above the waterline</text>
+    <text x="710" y="155" font-family="Nunito, sans-serif" font-size="20" font-weight="600" fill="#7c2d12">What you can see</text>
+
+    <line x1="600" y1="300" x2="700" y2="300" stroke="#1e3a8a" stroke-width="2" />
+    <text x="710" y="295" font-family="Fredoka, sans-serif" font-size="26" font-weight="700" fill="#1e3a8a">Just below</text>
+    <text x="710" y="325" font-family="Nunito, sans-serif" font-size="20" font-weight="600" fill="#1e3a8a">Stuff you just learned</text>
+
+    <line x1="530" y1="470" x2="700" y2="470" stroke="#0c1d4a" stroke-width="2" />
+    <text x="710" y="465" font-family="Fredoka, sans-serif" font-size="26" font-weight="700" fill="#0c1d4a">Way down deep</text>
+    <text x="710" y="495" font-family="Nunito, sans-serif" font-size="20" font-weight="600" fill="#0c1d4a">Stuff you can't see at all</text>
+
+    <!-- Left side: 3 dots above water for "us" -->
+    <circle cx="180" cy="155" r="14" fill="#2563eb" />
+    <circle cx="220" cy="155" r="14" fill="#d97706" />
+    <circle cx="260" cy="155" r="14" fill="#db2777" />
+    <text x="220" y="115" font-family="Fredoka, sans-serif" font-size="22" font-weight="700" fill="#7c2d12" text-anchor="middle">Us 👋</text>
+
+    <!-- Left side: trivia recap labels in mid zone -->
+    <text x="160" y="265" font-family="Nunito, sans-serif" font-size="16" font-weight="700" fill="#fff">5 languages</text>
+    <text x="160" y="300" font-family="Nunito, sans-serif" font-size="16" font-weight="700" fill="#fff">we all code</text>
+    <text x="160" y="335" font-family="Nunito, sans-serif" font-size="16" font-weight="700" fill="#fff">built our table</text>
+  `;
+  root.appendChild(svg);
+
+  const sub = el('div', 'subtitle');
+  sub.innerHTML = "There's <strong>more</strong> below the waterline — way down deep, where you can't see at all.";
+  root.appendChild(sub);
+  return root;
+}
+
+function renderCloserAdhd() {
+  const root = el('div', 'slide adhd-page');
+  setCatVars(root, 'adhd');
+  root.appendChild(el('h1', 'big-heading adhd', '🧠 ADHD'));
+  const who = el('div', 'who-line');
+  who.innerHTML = '<span class="strong">Manasi and Nishka</span> have ADHD.';
+  root.appendChild(who);
+  root.appendChild(el('div', 'aside-line', '(Maybe Ashish too.)'));
+
+  const grid = el('div', 'two-cols');
+  grid.style.setProperty('--cat', 'var(--c-adhd)');
+  grid.style.setProperty('--cat-soft', 'var(--c-adhd-soft)');
+  grid.style.setProperty('--cat-ink', 'var(--c-adhd-ink)');
+
+  const left = el('div', 'col-card');
+  left.innerHTML = `
+    <h3 class="col-title">What it can mean ✨</h3>
+    <div class="col-list">
+      <div class="col-item"><span class="ico">⚡</span> Big imagination</div>
+      <div class="col-item"><span class="ico">🎯</span> Hyperfocus on what we love</div>
+      <div class="col-item"><span class="ico">💡</span> Lots of ideas</div>
+      <div class="col-item"><span class="ico">🎨</span> Super creative</div>
+    </div>
+  `;
+  const right = el('div', 'col-card');
+  right.innerHTML = `
+    <h3 class="col-title">It can also mean</h3>
+    <div class="col-list">
+      <div class="col-item"><span class="ico">🪑</span> Hard to sit still</div>
+      <div class="col-item"><span class="ico">🧠</span> Easy to forget things</div>
+      <div class="col-item"><span class="ico">🎯</span> Hard to focus</div>
+    </div>
+  `;
+  grid.appendChild(left);
+  grid.appendChild(right);
+  root.appendChild(grid);
+
+  root.appendChild(el('div', 'tag', "Our brains just work differently — and <strong>that's okay</strong>."));
+  return root;
+}
+
+function renderCloserT1d() {
+  const root = el('div', 'slide t1d-page');
+  setCatVars(root, 't1d');
+  root.appendChild(el('h1', 'big-heading t1d', '💉 Type 1 Diabetes'));
+  const who = el('div', 'who-line');
+  who.innerHTML = '<span class="strong">Ashish</span> has Type 1 Diabetes.';
+  root.appendChild(who);
+  root.appendChild(el('div', 'tag', "His body doesn't make a thing called <strong>insulin</strong>."));
+  root.appendChild(el('div', 'tag', "So he wears a <strong>tiny computer</strong> that helps him."));
+  root.appendChild(el('div', 'tag', "It's <strong>NOT</strong> caused by what you eat."));
+  root.appendChild(el('div', 'tag muted', "Some bodies just need a little extra help."));
+  return root;
+}
+
+function renderCloserPayoff() {
+  const root = el('div', 'slide');
+  setCatVars(root, 'closer');
+  const p = el('div', 'payoff');
+  p.innerHTML = "Everyone has stuff<br/>below the waterline.<br/><br/>That's what makes you, <em>you</em>.";
+  root.appendChild(p);
+  root.appendChild(el('div', 'payoff-sub', '🙋 Questions?'));
+  return root;
+}
+
+// ===== Routing =====
+function getTotalStages(idx) {
+  const s = SLIDES[idx];
+  return s.type === 'trivia' ? 2 : 1;
+}
+
+function render() {
+  const slide = SLIDES[STATE.slide];
+  const area = document.getElementById('slide-area');
+  area.innerHTML = '';
+  let elNode;
+  switch (slide.type) {
+    case 'intro1': elNode = renderIntro1(); break;
+    case 'intro2': elNode = renderIntro2(); break;
+    case 'intro3': elNode = renderIntro3(); break;
+    case 'closer-iceberg': elNode = renderCloserIceberg(); break;
+    case 'closer-adhd': elNode = renderCloserAdhd(); break;
+    case 'closer-t1d': elNode = renderCloserT1d(); break;
+    case 'closer-payoff': elNode = renderCloserPayoff(); break;
+    default: elNode = renderTrivia(slide, STATE.stage);
+  }
+  area.appendChild(elNode);
+
+  document.getElementById('slide-current').textContent = STATE.slide + 1;
+  document.getElementById('slide-total').textContent = SLIDES.length;
+  const totalStages = getTotalStages(STATE.slide);
+  const stageInfo = document.getElementById('stage-info');
+  stageInfo.textContent = totalStages > 1 ? ` · stage ${STATE.stage + 1}/${totalStages}` : '';
+
+  document.getElementById('progress-bar').style.width = (((STATE.slide + 1) / SLIDES.length) * 100) + '%';
+  document.getElementById('prev').disabled = (STATE.slide === 0 && STATE.stage === 0);
+  document.getElementById('next').disabled = (STATE.slide === SLIDES.length - 1 && STATE.stage === totalStages - 1);
+}
+
+function next() {
+  const total = getTotalStages(STATE.slide);
+  if (STATE.stage < total - 1) STATE.stage++;
+  else if (STATE.slide < SLIDES.length - 1) { STATE.slide++; STATE.stage = 0; updateHash(); }
+  else return;
+  render();
+}
+function prev() {
+  if (STATE.stage > 0) STATE.stage--;
+  else if (STATE.slide > 0) { STATE.slide--; STATE.stage = getTotalStages(STATE.slide) - 1; updateHash(); }
+  else return;
+  render();
+}
+function updateHash() { history.replaceState(null, '', '#' + (STATE.slide + 1)); }
+function readHash() {
+  const m = window.location.hash.match(/^#(\d+)$/);
+  if (m) {
+    const n = parseInt(m[1], 10);
+    if (n >= 1 && n <= SLIDES.length) { STATE.slide = n - 1; STATE.stage = 0; }
+  }
+}
+
+// Zoom
+function applyZoom() { document.documentElement.style.setProperty('--zoom', STATE.zoom); localStorage.setItem('iceberg-zoom', STATE.zoom); }
+function zoomIn() { STATE.zoom = Math.min(2, STATE.zoom + 0.1); applyZoom(); }
+function zoomOut() { STATE.zoom = Math.max(0.6, STATE.zoom - 0.1); applyZoom(); }
+function loadZoom() { const z = parseFloat(localStorage.getItem('iceberg-zoom')); if (!isNaN(z) && z >= 0.6 && z <= 2) { STATE.zoom = z; applyZoom(); } }
+
+// Theme
+function applyTheme(theme) { document.documentElement.style.colorScheme = theme; document.getElementById('theme-toggle').textContent = (theme === 'dark') ? '🌙' : '☀'; localStorage.setItem('iceberg-theme', theme); }
+function toggleTheme() { const c = localStorage.getItem('iceberg-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); applyTheme(c === 'dark' ? 'light' : 'dark'); }
+function loadTheme() { const s = localStorage.getItem('iceberg-theme'); if (s) applyTheme(s); else applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+
+// Init
+loadZoom(); loadTheme(); readHash(); render();
+document.getElementById('next').addEventListener('click', next);
+document.getElementById('prev').addEventListener('click', prev);
+document.getElementById('zoom-in').addEventListener('click', zoomIn);
+document.getElementById('zoom-out').addEventListener('click', zoomOut);
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => {});
+  } else {
+    document.exitFullscreen().catch(() => {});
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
+});
+document.getElementById('slide-area').addEventListener('click', () => next());
+window.addEventListener('hashchange', () => { readHash(); render(); });
+</script>
+</body>
+</html>
