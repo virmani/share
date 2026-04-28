@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YES / NO Flip Cards — Print &amp; Fold</title>
+<style>
+  @page { size: letter; margin: 0; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* On-screen preview wrapper */
+  @media screen {
+    body { background: #e8e3da; padding: 2rem 1rem; }
+    .instructions {
+      max-width: 8.5in;
+      margin: 0 auto 1.5rem;
+      background: #fff;
+      padding: 1.5rem 1.8rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      line-height: 1.5;
+    }
+    .instructions h1 { margin: 0 0 0.5rem; font-size: 22px; letter-spacing: -0.01em; }
+    .instructions p { margin: 0.4rem 0; color: #444; font-size: 14px; }
+    .instructions strong { color: #000; }
+    .instructions ol { margin: 0.6rem 0 0; padding-left: 1.4rem; color: #444; font-size: 14px; }
+    .instructions ol li { margin: 0.3rem 0; }
+    .sheet {
+      margin: 0 auto 2rem;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    }
+    .print-button {
+      display: inline-block;
+      background: #1e40af;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .print-button:hover { background: #1e3a8a; }
+  }
+
+  @media print {
+    .instructions { display: none; }
+    body { background: #fff; padding: 0; }
+  }
+
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .sheet:last-of-type { page-break-after: auto; }
+
+  .half {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 3.6in;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-shadow: 0 0.04in 0.12in rgba(0,0,0,0.18);
+  }
+  .half.yes { background: #16a34a; }
+  .half.no  { background: #dc2626; }
+
+  /* Subtle white dashed fold guide running across the middle */
+  .fold-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 0.025in dashed rgba(255,255,255,0.55);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .fold-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: #444;
+    font-size: 0.13in;
+    font-weight: 700;
+    padding: 0.06in 0.18in;
+    border-radius: 999px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    box-shadow: 0 0.02in 0.06in rgba(0,0,0,0.15);
+  }
+</style>
+</head>
+<body>
+
+<div class="instructions">
+  <h1>🃏 YES / NO Flip Cards — Print &amp; Fold</h1>
+  <p>Three sheets, one per person (Ashish, Nishka, Manasi). Each sheet folds in half to make a single double-sided card: <strong>green YES</strong> on one face, <strong>red NO</strong> on the other.</p>
+  <p><strong>Print settings:</strong></p>
+  <ol>
+    <li>Paper size: <strong>US Letter</strong></li>
+    <li>Print on <strong>one side</strong> (single-sided)</li>
+    <li>Enable <strong>Background graphics</strong> / <strong>Print backgrounds</strong> (in the print dialog)</li>
+    <li>Scale: <strong>100% / Actual size</strong> (do not "Fit to page")</li>
+    <li>Margins: <strong>None</strong> or <strong>Minimum</strong></li>
+  </ol>
+  <p><strong>Fold:</strong> after printing, fold each sheet in half along the dashed line so the printed sides face <em>outward</em>. Folded card is 8.5″ × 5.5″ — readable from the back of a classroom.</p>
+  <button class="print-button" onclick="window.print()">Print 3 Cards</button>
+</div>
+
+<div class="sheet">
+  <div class="half yes">YES</div>
+  <div class="half no">NO</div>
+  <div class="fold-line"></div>
+  <div class="fold-label">Fold Here</div>
+</div>
+
+<div class="sheet">
+  <div class="half yes">YES</div>
+  <div class="half no">NO</div>
+  <div class="fold-line"></div>
+  <div class="fold-label">Fold Here</div>
+</div>
+
+<div class="sheet">
+  <div class="half yes">YES</div>
+  <div class="half no">NO</div>
+  <div class="fold-line"></div>
+  <div class="fold-label">Fold Here</div>
+</div>
+
+</body>
+</html>
